@@ -1,4 +1,5 @@
 from jdatetime import datetime as jdatetime
+from aiofile import async_open as aiopen
 from asyncio import run, create_task, sleep as aiosleep
 from httpx import AsyncClient
 from random import randint
@@ -111,7 +112,10 @@ async def handle_self_command(text, update, client):
     global speaker
     me_guid = client._guid
 
-    if text in ['.تاریخ', '.ساعت', '.زمان']:
+    if text in ['.راهنما', '.کمک', '.help']:
+        async with aiopen(r'./help.txt', 'r') as file:
+            await client.send_message(update.object_guid, await file.read(), update.last_message_id)
+    elif text in ['.تاریخ', '.ساعت', '.زمان']:
         await get_date(client, update)
     elif text.startswith('.سلف'):
         await handle_self_command_safely(text, update, me_guid, client)
