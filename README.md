@@ -1,2 +1,4 @@
-# rubika-self
-A fast, optimized and interesting predecessor to Rubika
+# سلف روبیکا
+یک سلف سریع، بهینه و جالب برای پیام رسان روبیکا که با rubpy نوشته شده است!
+
+جهت نصب نیازمندی ها(کتابخانه های مورد نیاز) دستور `pip install -r requirements.txt` را در ترمینال خود وارد کنید.
