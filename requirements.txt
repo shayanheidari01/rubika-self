@@ -1,5 +1,5 @@
 jdatetime==4.1.1
 httpx==0.25.0
-rubpy==6.3.8
+rubpy==6.4.4
 aiofiles==23.2.1
 

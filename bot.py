@@ -111,8 +111,9 @@ async def handle_self_command(text, update, client):
     global only_me
     global speaker
     me_guid = client._guid
+    print(text)
 
-    if text in ['.راهنما', '.کمک', '.help']:
+    if text in ['.راهنما', '.کمک', '.help']:  
         async with aiopen(r'./help.txt', 'r') as file:
             await client.send_message(update.object_guid, await file.read(), update.last_message_id)
     elif text in ['.تاریخ', '.ساعت', '.زمان']:
@@ -198,9 +199,10 @@ async def handler(client: Client, update: dict):
         print('An Error:', exc)
 
 async def main():
-    async with Client(session='MySelf', timeout=2) as client:
+    async with Client(session='MySelf', timeout=20) as client:
         me_guid = client._guid
         seen = []
+        await client.send_message(me_guid, '**● ربات سلف فعال شد!**\n• با استفاده از دستور `.راهنما` میتونی تمام قابلیتا و سرگرمیای ربات رو ببینی 😎👌\n**• شایان حیدری**')
 
         while True:
             if len(seen) > 40:
